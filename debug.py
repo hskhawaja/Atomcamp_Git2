@@ -20,7 +20,7 @@ def test_sectioning(file):
     :return:
     """
     document, toc, sections = load_doc(file)
-    if len(toc) > len(sections.keys()):
+    if len(toc) >= len(sections.keys()):
         raise Exception('Sectioning fails to catch all toc items.')
 
     return document,toc,sections
@@ -41,8 +41,7 @@ def test_preamble(file):
 if __name__ == "__main__":
     path = "/home/david/PycharmProjects/frq-nlp/Data/prospectus"
     files_parse_error = ["Candriam.pdf", "pictet_sicav.pdf", "pictet_multi.pdf"]
-    files_section_error = ["mg.pdf", "jss.pdf", "/aif/AZ_eltif.PDF"]
-    files_preamble_error = ["State Street.pdf"]
+    
 
     ##1 Parsing error
     #document,toc,sections = load_doc(path + "/" + random.choice(files_parse_error))
